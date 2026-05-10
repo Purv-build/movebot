@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MoveBot</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#020817;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+height:90px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+background:rgba(2,8,23,0.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(0,255,255,0.08);
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+}
+
+.logo h1{
+font-size:46px;
+font-weight:bold;
+}
+
+.logo p{
+font-size:14px;
+color:#84ffff;
+margin-top:4px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00ffee;
+}
+
+/* HERO */
+
+.hero{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:160px 80px 80px 80px;
+gap:60px;
+}
+
+/* LEFT */
+
+.left{
+width:50%;
+}
+
+.left h2{
+font-size:92px;
+line-height:0.95;
+font-weight:bold;
+}
+
+.gradient{
+background:linear-gradient(90deg,#00ffbb,#00d9ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.line{
+width:130px;
+height:4px;
+background:#00ffee;
+border-radius:20px;
+margin:30px 0;
+}
+
+.left p{
+font-size:20px;
+line-height:1.9;
+color:#d4d4d4;
+max-width:700px;
+}
+
+/* BUTTONS */
+
+.buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 30px;
+border-radius:50px;
+border:1px solid rgba(0,255,255,0.18);
+background:rgba(255,255,255,0.04);
+color:white;
+font-size:16px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+border-color:rgba(0,255,255,0.4);
+box-shadow:0 0 25px rgba(0,255,255,0.15);
+}
+
+/* RIGHT */
+
+.right{
+width:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+width:420px;
+height:420px;
+border-radius:40px;
+background:radial-gradient(circle at center,
+rgba(0,255,200,0.18),
+rgba(0,0,0,0.2));
+
+border:1px solid rgba(0,255,255,0.12);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+box-shadow:0 0 70px rgba(0,255,255,0.08);
+
+backdrop-filter:blur(14px);
+}
+
+.card .emoji{
+font-size:120px;
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:54px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:16px;
+letter-spacing:1px;
+color:#b8ffff;
+}
+
+/* FEATURES */
+
+.features{
+padding:100px 90px;
+}
+
+.section-title{
+font-size:62px;
+margin-bottom:50px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.feature-card{
+padding:35px;
+border-radius:30px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(0,255,255,0.08);
+backdrop-filter:blur(12px);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-6px);
+border-color:rgba(0,255,255,0.25);
+}
+
+.feature-card h3{
+font-size:30px;
+margin-bottom:18px;
+}
+
+.feature-card p{
+font-size:17px;
+line-height:1.8;
+color:#d4d4d4;
+}
+
+/* FUTURE */
+
+.future{
+padding:100px 90px;
+}
+
+.future-box{
+margin-top:40px;
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(0,255,255,0.08);
+}
+
+.future-box p{
+font-size:20px;
+line-height:2;
+color:#d4d4d4;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+font-size:16px;
+color:#98e9e9;
+border-top:1px solid rgba(0,255,255,0.08);
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:140px;
+}
+
+.left,
+.right{
+width:100%;
+}
+
+.left h2{
+font-size:64px;
+}
+
+.line{
+margin:auto;
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.buttons{
+justify-content:center;
+}
+
+.card{
+width:340px;
+height:340px;
+}
+
+.card .emoji{
+font-size:90px;
+}
+
+.card h3{
+font-size:40px;
+}
+
+}
+
+@media(max-width:700px){
+
+.left h2{
+font-size:48px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.features,
+.future{
+padding:80px 30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+<h1>MOVEBOT</h1>
+<p>Smarter Movement Awareness</p>
+</div>
+
+<a href="#">Bot Ecosystem</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="left">
+
+<h2>
+MOVE<br>
+SMARTER.<br>
+<span class="gradient">LIVE BETTER.</span>
+</h2>
+
+<div class="line"></div>
+
+<p>
+MoveBot is an awareness-driven mobility assistant focused on encouraging healthier and more sustainable movement choices. It promotes walking awareness, smarter short-distance travel, reduced fuel wastage, and conscious transportation habits.
+</p>
+
+<div class="buttons">
+
+<button class="btn">
+🚶 Walking Awareness
+</button>
+
+<button class="btn">
+🌍 Sustainable Travel
+</button>
+
+<button class="btn">
+⚡ Smarter Daily Movement
+</button>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right">
+
+<div class="card">
+
+<div class="emoji">🚶</div>
+
+<h3>MOVEBOT</h3>
+
+<p>
+Move Better • Live Better
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2 class="section-title">
+<span class="gradient">Core Features</span>
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>🚶 Walking Awareness</h3>
+
+<p>
+Encourages walking for short distances to improve health and reduce unnecessary fuel consumption.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>🌍 Sustainable Mobility</h3>
+
+<p>
+Promotes environmentally responsible movement habits and smarter transportation decisions.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>⚡ Daily Movement Insights</h3>
+
+<p>
+Creates awareness about everyday movement choices and their long-term impact on health and sustainability.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FUTURE -->
+
+<section class="future">
+
+<h2 class="section-title">
+<span class="gradient">Future Vision</span>
+</h2>
+
+<div class="future-box">
+
+<p>
+Future versions of MoveBot may include QR-based awareness systems, smart movement tracking, route awareness, camera-assisted transportation recognition, and sustainable travel guidance systems designed to improve urban mobility awareness through ethical and preventive technology.
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+MOVEBOT • Part of Bot Ecosystem
+
+</footer>
+
+</body>
+
+</html>
